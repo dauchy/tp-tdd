@@ -120,4 +120,52 @@ public class TestConvert {
 		Assert.assertEquals("dix-sept", myConvert.num2text("17"));
 	}
 	
+	@Test
+	public void test_num2text_vingt () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("vingt", myConvert.num2text("20"));
+	}
+	
+	@Test
+	public void test_num2text_trente () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("trente", myConvert.num2text("30"));
+	}
+	
+	@Test
+	public void test_num2text_quarante () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("quarante", myConvert.num2text("40"));
+	}
+	
+	@Test
+	public void test_num2text_cinquante () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("cinquante", myConvert.num2text("50"));
+	}
+	
+	@Test
+	public void test_num2text_soixante () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("soixante", myConvert.num2text("60"));
+	}
+	
+	@Test
+	public void test_num2text_soixante_dix () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("soixante-dix", myConvert.num2text("70"));
+	}
+	
+	@Test
+	public void test_num2text_quatre_vingt () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("quatre-vingt", myConvert.num2text("80"));
+	}
+	
+	@Test
+	public void test_num2text_quatre_vingt_dix () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("quatre-vingt-dix", myConvert.num2text("90"));
+	}
+	
 }

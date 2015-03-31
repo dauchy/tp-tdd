@@ -25,6 +25,8 @@ public class Convert {
 			}
 			else if (num >= 17 && num < 20)
 				return "dix-"+unite(num-10);
+			else if (num%10 == 0)
+				return dizaine(num);
 			 
 			return null;
 		}
@@ -54,6 +56,27 @@ public class Convert {
 		else if (i == 9)
 			return "neuf";
 		else 
+			return null;
+	}
+	
+	public static String dizaine (int i) {
+		if (i == 20)
+			return "vingt";
+		else if (i == 30)
+			return "trente";
+		else if (i == 40)
+			return "quarante";
+		else if (i == 50)
+			return "cinquante";
+		else if (i == 60)
+			return "soixante";
+		else if (i == 70)
+			return "soixante-dix";
+		else if (i == 80)
+			return "quatre-vingt";
+		else if (i == 90)
+			return "quatre-vingt-dix";
+		else
 			return null;
 	}
 	
