@@ -30,6 +30,8 @@ public class Convert {
 			else if (num/10 != 7 && num/10 != 9)
 				if (num % 10 == 1)
 					return dizaine(num-(num%10))+"-et-un";
+				else
+					return dizaine(num-(num%10))+"-"+unite(num%10);
 			 
 			return null;
 		}
