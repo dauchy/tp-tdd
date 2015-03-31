@@ -225,4 +225,19 @@ public class TestConvert {
 	public void test_num2text_sixzero() {
 		Assert.assertEquals("six", Convert.num2text("06 "));
 	}
+	
+	@Test
+	public void test_num2text_999_99() {
+		Assert.assertEquals("neuf cents quatre-vingt-dix-neuf virgule quatre-vingt-dix-neuf", Convert.num2text("999,99"));
+	}
+	
+	@Test
+	public void test_num2text_6_4() {
+		Assert.assertEquals("six virgule quarante", Convert.num2text("6,4"));
+	}
+	
+	@Test
+	public void test_num2text_6_444() {
+		Assert.assertEquals("six virgule quarante-quatre", Convert.num2text("6,444"));
+	}
 }

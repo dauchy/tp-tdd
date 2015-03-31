@@ -42,30 +42,51 @@ public class Convert {
 		try {
 			String[] tab = input.split(" ");
 			int num = 0;
-			for (String s : tab) {
-				System.out.println(s);
-				if (s.length()!=0)
-					num = Integer.parseInt(s);
-			}
-			if (num < 100)
-				return moins_de_100(num);
-			else if (num == 100)
-				return "cent";
-			else if (num/100 ==1) {
-				return "cent "+moins_de_100(num%100);
-			} else if (num%100 == 0) {
-				return unite.get(num/100)+" cents";
-			}
-			else {
-				return unite.get(num/100)+" cents "+moins_de_100(num%100);
-			}			
+			for (String s : tab)
+				if (s.length()!=0) {
+					String[] tab2 = s.split(",");
+					if (tab2.length==2)
+						return virgule(tab2[0], tab2[1]);
+					else
+						num = Integer.parseInt(s);
+				}
+			
+			
+			
+			if (num < 1000)
+				return moins_de_1000(num);
+			
+			return null;
 		}
 		catch (Exception e) {return null;}
 	}
 	
 	
+	public static String virgule(String av, String ap) {
+		int avant = Integer.parseInt(av);
+		int apres = Integer.parseInt(ap);
+		
+		if (ap.length()== 1)
+			apres=apres*10;
+		if (ap.length()>2)
+			apres=apres/(10*(ap.length()-2));
+		return moins_de_1000(avant)+" virgule "+moins_de_1000(apres);
+	}
 	
-	
+	public static String moins_de_1000(int num) {
+		if (num < 100)
+			return moins_de_100(num);
+		else if (num == 100)
+			return "cent";
+		else if (num/100 ==1) {
+			return "cent "+moins_de_100(num%100);
+		} else if (num%100 == 0) {
+			return unite.get(num/100)+" cents";
+		}
+		else {
+			return unite.get(num/100)+" cents "+moins_de_100(num%100);
+		}		
+	}
 	
 	public static String moins_de_100(int num) {
 		if (num < 10 && num >=0) {
