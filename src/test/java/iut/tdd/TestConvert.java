@@ -216,4 +216,13 @@ public class TestConvert {
 		Assert.assertEquals("trois cents", myConvert.num2text("300"));
 	}
 	
+	@Test
+	public void test_num2text_zerosix() {
+		Assert.assertEquals("six", Convert.num2text(" 06"));
+	}
+	
+	@Test
+	public void test_num2text_sixzero() {
+		Assert.assertEquals("six", Convert.num2text("06 "));
+	}
 }

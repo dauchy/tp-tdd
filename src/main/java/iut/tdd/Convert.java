@@ -40,8 +40,13 @@ public class Convert {
 		
 		
 		try {
-			int num = Integer.parseInt(input);
-			
+			String[] tab = input.split(" ");
+			int num = 0;
+			for (String s : tab) {
+				System.out.println(s);
+				if (s.length()!=0)
+					num = Integer.parseInt(s);
+			}
 			if (num < 100)
 				return moins_de_100(num);
 			else if (num == 100)
