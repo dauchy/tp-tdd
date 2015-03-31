@@ -114,4 +114,10 @@ public class TestConvert {
 		Assert.assertEquals("seize", myConvert.num2text("16"));
 	}
 	
+	@Test
+	public void test_num2text_dix_sept () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("dix-sept", myConvert.num2text("17"));
+	}
+	
 }
