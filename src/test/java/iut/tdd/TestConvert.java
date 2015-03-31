@@ -48,4 +48,28 @@ public class TestConvert {
 		Assert.assertEquals("cinq", myConvert.num2text("5"));
 	}
 	
+	@Test
+	public void test_num2text_six () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("six", myConvert.num2text("6"));
+	}
+	
+	@Test
+	public void test_num2text_sept () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("sept", myConvert.num2text("7"));
+	}
+	
+	@Test
+	public void test_num2text_huit () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("huit", myConvert.num2text("8"));
+	}
+	
+	@Test
+	public void test_num2text_neuf () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("neuf", myConvert.num2text("9"));
+	}
+	
 }
