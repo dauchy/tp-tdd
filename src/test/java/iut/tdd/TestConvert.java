@@ -180,4 +180,16 @@ public class TestConvert {
 		Assert.assertEquals("vingt-deux", myConvert.num2text("22"));
 	}
 	
+	@Test
+	public void test_num2text_soixante_douze () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("soixante-douze", myConvert.num2text("72"));
+	}
+	
+	@Test
+	public void test_num2text_quatre_vingt_dix_sept () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("quatre-vingt-dix-sept", myConvert.num2text("97"));
+	}
+	
 }

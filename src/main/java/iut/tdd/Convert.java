@@ -7,24 +7,9 @@ public class Convert {
 			if (num < 10 && num >=0) {
 				return unite(num);
 			}
-			else if (num>=10 && num < 17) {
-				if (num == 10)
-					return "dix";
-				else if (num == 11)
-					return "onze";
-				else if (num == 12)
-					return "douze";
-				else if (num == 13)
-					return "treize";
-				else if (num == 14)
-					return "quatorze";
-				else if (num == 15)
-					return "quinze";
-				else if (num == 16)
-					return "seize";
+			else if (num>10 && num < 17) {
+				return entre10_et20(num);	
 			}
-			else if (num >= 17 && num < 20)
-				return "dix-"+unite(num-10);
 			else if (num%10 == 0)
 				return dizaine(num);
 			else if (num/10 != 7 && num/10 != 9)
@@ -32,6 +17,10 @@ public class Convert {
 					return dizaine(num-(num%10))+"-et-un";
 				else
 					return dizaine(num-(num%10))+"-"+unite(num%10);
+			else if (num/10 == 7)
+				return dizaine(num-(num%10)-10)+"-"+entre10_et20(num-60);
+			else if (num/10 == 9)
+				return dizaine(num-(num%10)-10)+"-"+entre10_et20(num-80);
 			 
 			return null;
 		}
@@ -64,8 +53,29 @@ public class Convert {
 			return null;
 	}
 	
+	public static String entre10_et20 (int i) {
+		 if (i == 11)
+			 return "onze";
+		 else if (i == 12)
+			 return "douze";
+		 else if (i == 13)
+			 return "treize";
+		 else if (i == 14)
+			 return "quatorze";
+		 else if (i == 15)
+			 return "quinze";
+		 else if (i == 16)
+			 return "seize";
+		 else if (i >= 17 && i < 20)
+			return "dix-"+unite(i-10);
+		 
+		 return null;
+	}
+		 
 	public static String dizaine (int i) {
-		if (i == 20)
+		if (i == 10)
+			return "dix";
+		else if (i == 20)
 			return "vingt";
 		else if (i == 30)
 			return "trente";
