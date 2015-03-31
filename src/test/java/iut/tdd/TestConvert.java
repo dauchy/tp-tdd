@@ -72,4 +72,46 @@ public class TestConvert {
 		Assert.assertEquals("neuf", myConvert.num2text("9"));
 	}
 	
+	@Test
+	public void test_num2text_dix () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("dix", myConvert.num2text("10"));
+	}
+	
+	@Test
+	public void test_num2text_onze () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("onze", myConvert.num2text("11"));
+	}
+	
+	@Test
+	public void test_num2text_douze () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("douze", myConvert.num2text("12"));
+	}
+	
+	@Test
+	public void test_num2text_treize () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("treize", myConvert.num2text("13"));
+	}
+	
+	@Test
+	public void test_num2text_quatorze () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("quatorze", myConvert.num2text("14"));
+	}
+	
+	@Test
+	public void test_num2text_quinze () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("quinze", myConvert.num2text("15"));
+	}
+	
+	@Test
+	public void test_num2text_seize () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("seize", myConvert.num2text("16"));
+	}
+	
 }

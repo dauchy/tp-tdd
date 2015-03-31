@@ -25,6 +25,20 @@ public class Convert {
 					return "huit";
 				else if (num == 9)
 					return "neuf";
+				else if (num == 10)
+					return "dix";
+				else if (num == 11)
+					return "onze";
+				else if (num == 12)
+					return "douze";
+				else if (num == 13)
+					return "treize";
+				else if (num == 14)
+					return "quatorze";
+				else if (num == 15)
+					return "quinze";
+				else if (num == 16)
+					return "seize";
 			}
 			 
 			return null;
