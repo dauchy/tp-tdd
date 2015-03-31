@@ -9,7 +9,7 @@ public class TestConvert {
 	@Test
 	public void test_num2text_err () {
 		Convert myConvert = new Convert();
-		Assert.assertEquals(null, myConvert.num2text("fdg12"));
+		Assert.assertEquals(null, myConvert.num2text("fd12"));
 	}
 	
 	@Test
@@ -190,6 +190,30 @@ public class TestConvert {
 	public void test_num2text_quatre_vingt_dix_sept () {
 		Convert myConvert = new Convert();
 		Assert.assertEquals("quatre-vingt-dix-sept", myConvert.num2text("97"));
+	}
+	
+	@Test
+	public void test_num2text_cent_quarante_deux () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("cent quarante-deux", myConvert.num2text("142"));
+	}
+	
+	@Test
+	public void test_num2text_quatre_cents_cinquante_deux() {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("quatre cents cinquante-deux", myConvert.num2text("452"));
+	}
+	
+	@Test
+	public void test_num2text_cent() {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("cent", myConvert.num2text("100"));
+	}
+	
+	@Test
+	public void test_num2text_trois_cent() {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("trois cents", myConvert.num2text("300"));
 	}
 	
 }

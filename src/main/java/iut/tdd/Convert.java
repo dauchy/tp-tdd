@@ -1,98 +1,88 @@
 package iut.tdd;
 
+import java.util.HashMap;
+
 public class Convert {
+	
+	static HashMap <Integer, String> unite = new HashMap<Integer, String>();
+	static HashMap <Integer, String> entre10_et20 = new HashMap<Integer, String>();
+	static HashMap <Integer, String> dizaine = new HashMap<Integer, String>();
+	
 	public static String num2text(String input) {
+		unite.put(0, "zéro");
+		unite.put(1, "un");
+		unite.put(2, "deux");
+		unite.put(3, "trois");
+		unite.put(4, "quatre");
+		unite.put(5, "cinq");
+		unite.put(6, "six");
+		unite.put(7, "sept");
+		unite.put(8, "huit");
+		unite.put(9, "neuf");
+		entre10_et20.put(11, "onze");
+		entre10_et20.put(12, "douze");
+		entre10_et20.put(13, "treize");
+		entre10_et20.put(14, "quatorze");
+		entre10_et20.put(15, "quinze");
+		entre10_et20.put(16, "seize");
+		entre10_et20.put(17, "dix-sept");
+		entre10_et20.put(18, "dix-huit");
+		entre10_et20.put(19, "dix-neuf");
+		dizaine.put(10, "dix");
+		dizaine.put(20, "vingt");
+		dizaine.put(30, "trente");
+		dizaine.put(40, "quarante");
+		dizaine.put(50, "cinquante");
+		dizaine.put(60, "soixante");
+		dizaine.put(70, "soixante-dix");
+		dizaine.put(80, "quatre-vingt");
+		dizaine.put(90, "quatre-vingt-dix");
+		
+		
 		try {
 			int num = Integer.parseInt(input);
-			if (num < 10 && num >=0) {
-				return unite(num);
+			
+			if (num < 100)
+				return moins_de_100(num);
+			else if (num == 100)
+				return "cent";
+			else if (num/100 ==1) {
+				return "cent "+moins_de_100(num%100);
+			} else if (num%100 == 0) {
+				return unite.get(num/100)+" cents";
 			}
-			else if (num>10 && num < 17) {
-				return entre10_et20(num);	
-			}
-			else if (num%10 == 0)
-				return dizaine(num);
-			else if (num/10 != 7 && num/10 != 9)
-				if (num % 10 == 1)
-					return dizaine(num-(num%10))+"-et-un";
-				else
-					return dizaine(num-(num%10))+"-"+unite(num%10);
-			else if (num/10 == 7)
-				return dizaine(num-(num%10)-10)+"-"+entre10_et20(num-60);
-			else if (num/10 == 9)
-				return dizaine(num-(num%10)-10)+"-"+entre10_et20(num-80);
-			 
-			return null;
+			else {
+				return unite.get(num/100)+" cents "+moins_de_100(num%100);
+			}			
 		}
-		
 		catch (Exception e) {return null;}
 	}
 	
-	public static String unite (int i) {
-		if (i == 0)
-			return "zéro";
-		else if (i == 1)
-			return "un";
-		else if (i == 2)
-			return "deux";
-		else if (i == 3)
-			return "trois";
-		else if (i == 4)
-			return "quatre";
-		else if (i == 5)
-			return "cinq";
-		else if (i == 6)
-			return "six";
-		else if (i == 7)
-			return "sept";
-		else if (i == 8)
-			return "huit";
-		else if (i == 9)
-			return "neuf";
-		else 
-			return null;
-	}
 	
-	public static String entre10_et20 (int i) {
-		 if (i == 11)
-			 return "onze";
-		 else if (i == 12)
-			 return "douze";
-		 else if (i == 13)
-			 return "treize";
-		 else if (i == 14)
-			 return "quatorze";
-		 else if (i == 15)
-			 return "quinze";
-		 else if (i == 16)
-			 return "seize";
-		 else if (i >= 17 && i < 20)
-			return "dix-"+unite(i-10);
+	
+	
+	
+	public static String moins_de_100(int num) {
+		if (num < 10 && num >=0) {
+			return unite.get(num);
+		}
+		else if (num>10 && num < 20) {
+			return entre10_et20.get(num);	
+		}
+		else if (num%10 == 0) {
+			return dizaine.get(num);
+		}
+		else if (num/10 != 7 && num/10 != 9)
+			if (num % 10 == 1)
+				return dizaine.get(num-(num%10))+"-et-un";
+			else
+				return dizaine.get(num-(num%10))+"-"+unite.get(num%10);
+		else if (num/10 == 7)
+			return dizaine.get(num-(num%10)-10)+"-"+entre10_et20.get(num-60);
+		else if (num/10 == 9)
+			return dizaine.get(num-(num%10)-10)+"-"+entre10_et20.get(num-80);
 		 
-		 return null;
-	}
-		 
-	public static String dizaine (int i) {
-		if (i == 10)
-			return "dix";
-		else if (i == 20)
-			return "vingt";
-		else if (i == 30)
-			return "trente";
-		else if (i == 40)
-			return "quarante";
-		else if (i == 50)
-			return "cinquante";
-		else if (i == 60)
-			return "soixante";
-		else if (i == 70)
-			return "soixante-dix";
-		else if (i == 80)
-			return "quatre-vingt";
-		else if (i == 90)
-			return "quatre-vingt-dix";
-		else
-			return null;
+		return null;
 	}
 	
 	public static String text2num(String input) {
