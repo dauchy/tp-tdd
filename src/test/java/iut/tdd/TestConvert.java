@@ -168,4 +168,10 @@ public class TestConvert {
 		Assert.assertEquals("quatre-vingt-dix", myConvert.num2text("90"));
 	}
 	
+	@Test
+	public void test_num2text_vingt_et_un () {
+		Convert myConvert = new Convert();
+		Assert.assertEquals("vingt-et-un", myConvert.num2text("21"));
+	}
+	
 }

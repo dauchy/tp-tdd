@@ -27,6 +27,9 @@ public class Convert {
 				return "dix-"+unite(num-10);
 			else if (num%10 == 0)
 				return dizaine(num);
+			else if (num/10 != 7 && num/10 != 9)
+				if (num % 10 == 1)
+					return dizaine(num-(num%10))+"-et-un";
 			 
 			return null;
 		}
