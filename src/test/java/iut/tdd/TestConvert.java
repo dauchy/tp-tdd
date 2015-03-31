@@ -240,4 +240,14 @@ public class TestConvert {
 	public void test_num2text_6_444() {
 		Assert.assertEquals("six virgule quarante-quatre", Convert.num2text("6,444"));
 	}
+	
+	@Test
+	public void test_num2text_6e4() {
+		Assert.assertEquals("six euro quarante", Convert.num2text("6,4€"));
+	}
+	
+	@Test
+	public void test_num2text_6s4() {
+		Assert.assertEquals("six dollar quarante", Convert.num2text("$6,4"));
+	}
 }

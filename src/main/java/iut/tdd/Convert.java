@@ -7,6 +7,8 @@ public class Convert {
 	static HashMap <Integer, String> unite = new HashMap<Integer, String>();
 	static HashMap <Integer, String> entre10_et20 = new HashMap<Integer, String>();
 	static HashMap <Integer, String> dizaine = new HashMap<Integer, String>();
+	static boolean euro;
+	static boolean doll;
 	
 	public static String num2text(String input) {
 		unite.put(0, "zéro");
@@ -44,24 +46,47 @@ public class Convert {
 			int num = 0;
 			for (String s : tab)
 				if (s.length()!=0) {
+					if (s.charAt(0)=='$') {
+						doll=true;
+						s=s.substring(1, s.length());
+					}
+					if (s.charAt(s.length()-1)=='€') {
+						euro=true;
+						s=s.substring(0, s.length()-1);
+					}
 					String[] tab2 = s.split(",");
 					if (tab2.length==2)
-						return virgule(tab2[0], tab2[1]);
+						if (doll||euro)
+							return monnaie(tab2[0], tab2[1]);
+						else
+							return virgule(tab2[0], tab2[1]);
 					else
 						num = Integer.parseInt(s);
 				}
-			
-			
-			
 			if (num < 1000)
 				return moins_de_1000(num);
 			
-			return null;
+			return "tata";
 		}
-		catch (Exception e) {return null;}
+		catch (Exception e) {return e.getMessage();}
 	}
 	
-	
+	public static String monnaie(String av, String ap) {
+		int avant = Integer.parseInt(av);
+		int apres = Integer.parseInt(ap);
+		
+		if (ap.length()== 1)
+			apres=apres*10;
+		if (ap.length()>2)
+			apres=apres/(10*(ap.length()-2));
+		if (euro) {
+			return moins_de_1000(avant)+" euro "+moins_de_1000(apres);
+		} else if (doll) {
+			return moins_de_1000(avant)+" dollar "+moins_de_1000(apres);
+		}
+		return "toto";
+	}
+
 	public static String virgule(String av, String ap) {
 		int avant = Integer.parseInt(av);
 		int apres = Integer.parseInt(ap);
